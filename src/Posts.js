@@ -1,78 +1,28 @@
+import Conteudo from "./Conteudo";
+import Topo from "./Topo";
+import Fundo from "./Fundo";
+
+
+
 function Posts () {
+  const posts = [
+    {foto:"assets/img/meowed.svg", usuario:"meowed", conteudo:"assets/img/gato-telefone.svg", curtida:{foto:"assets/img/respondeai.svg", usuario:"respondeai", quantidade:"101.523"}  },
+    {foto:"assets/img/barked.svg", usuario:"barked", conteudo:"assets/img/dog.svg", curtida:{foto:"assets/img/adorable_animals.svg", usuario:"adorable_animals", quantidade:"99.159"}  },
+    {foto:"assets/img/meowed.svg", usuario:"meowed", conteudo:"assets/img/gato-telefone.svg", curtida:{foto:"assets/img/respondeai.svg", usuario:"respondeai", quantidade:"101.523"}  },
+    {foto:"assets/img/barked.svg", usuario:"barked", conteudo:"assets/img/dog.svg", curtida:{foto:"assets/img/adorable_animals.svg", usuario:"adorable_animals", quantidade:"99.159"}  }
+
+  ];
+
     return (
-        <div class="posts">
-        <div class="post">
-          <div class="topo">
-            <div class="usuario">
-              <img src="assets/img/meowed.svg" />
-              meowed
-            </div>
-            <div class="acoes">
-              <ion-icon name="ellipsis-horizontal"></ion-icon>
-            </div>
-          </div>
-
-          <div class="conteudo">
-            <img src="assets/img/gato-telefone.svg" />
-          </div>
-
-          <div class="fundo">
-            <div class="acoes">
-              <div>
-                <ion-icon name="heart-outline"></ion-icon>
-                <ion-icon name="chatbubble-outline"></ion-icon>
-                <ion-icon name="paper-plane-outline"></ion-icon>
-              </div>
-              <div>
-                <ion-icon name="bookmark-outline"></ion-icon>
-              </div>
-            </div>
-
-            <div class="curtidas">
-              <img src="assets/img/respondeai.svg" />
-              <div class="texto">
-                Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="topo">
-            <div class="usuario">
-              <img src="assets/img/barked.svg" />
-              barked
-            </div>
-            <div class="acoes">
-              <ion-icon name="ellipsis-horizontal"></ion-icon>
-            </div>
-          </div>
-
-          <div class="conteudo">
-            <img src="assets/img/dog.svg" />
-          </div>
-
-          <div class="fundo">
-            <div class="acoes">
-              <div>
-                <ion-icon name="heart-outline"></ion-icon>
-                <ion-icon name="chatbubble-outline"></ion-icon>
-                <ion-icon name="paper-plane-outline"></ion-icon>
-              </div>
-              <div>
-                <ion-icon name="bookmark-outline"></ion-icon>
-              </div>
-            </div>
-
-            <div class="curtidas">
-              <img src="assets/img/adorable_animals.svg" />
-              <div class="texto">
-                Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="posts">
+        {posts.map((objeto) => 
+          <div class="post">
+            < Topo img={objeto.foto} usuario={objeto.usuario} />
+            < Conteudo img={objeto.conteudo} />
+            < Fundo img={objeto.curtida.foto} usuario={objeto.curtida.usuario} quantidade={objeto.curtida.quantidade}/>
+          </div>)
+        }
+    </div>
     );
 }
 
