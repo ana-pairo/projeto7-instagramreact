@@ -1,12 +1,12 @@
 import Icone from "./Icone";
 
 function AcoesFundo () {
+    const icones = ["heart-outline", "chatbubble-outline", "paper-plane-outline"]
+
     return (
     <div class="acoes">
         <div>
-            < Icone name="heart-outline" />
-            < Icone name="chatbubble-outline" />
-            < Icone name="paper-plane-outline" />
+            {icones.map((elemento) => < Icone name={elemento} />)}
         </div>
         <div>
             < Icone name="bookmark-outline" />
