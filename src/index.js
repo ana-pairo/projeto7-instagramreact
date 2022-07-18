@@ -3,17 +3,14 @@ import NavBar from "./NavBar";
 import Corpo from "./Corpo";
 import FundoMobile from "./FundoMobile";
 
-
-function App () {
-    return (
+function App() {
+  return (
     <div>
-       <NavBar />
-       <Corpo />
-       <FundoMobile />
-    </div>);    
-};
+      <NavBar />
+      <Corpo />
+      <FundoMobile />
+    </div>
+  );
+}
 
-
-
-
-ReactDOM.render(<App/>, document.querySelector(".root"));
+ReactDOM.render(<App />, document.querySelector(".root"));

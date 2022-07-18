@@ -1,24 +1,37 @@
-import React from "react";
 import Icone from "./Icone";
+import React from "react";
 
-function AcoesFundo (props) {
-    const icones = ["chatbubble-outline", "paper-plane-outline"]
-    const [reacao, setReacao] = React.useState("heart-outline")
-    const [preencher, setPreencher] = React.useState("");
+function AcoesFundo(props) {
+  function alteraReacao() {
+    let novaReacao = props.reacao;
+    if (novaReacao[props.id] === "heart") {
+      novaReacao[props.id] = "heart-outline";
+    } else {
+      novaReacao[props.id] = "heart";
+    }
+    props.alteraReacao(novaReacao);
+  }
 
-    return (
+  const icones = ["chatbubble-outline", "paper-plane-outline"];
+  const coracao = props.reacao[props.id];
+
+  return (
     <div class="acoes">
-        <div>
-            <ion-icon name={reacao} style={{color: preencher}} onClick={
-                () => {if(reacao==="heart-outline") {setReacao('heart'); setPreencher('red');} else {setReacao('heart-outline');setPreencher('');}}
-            } ></ion-icon>
-            {icones.map((elemento) => < Icone name={elemento} />)}
-        </div>
-        <div>
-            < Icone name="bookmark-outline" />
-        </div>
+      <div>
+        <ion-icon
+          name={coracao}
+          onClick={alteraReacao}
+          style={{ color: coracao == "heart" ? "red" : "" }}
+        ></ion-icon>
+        {icones.map((elemento) => (
+          <Icone name={elemento} />
+        ))}
+      </div>
+      <div>
+        <Icone name="bookmark-outline" />
+      </div>
     </div>
-    );
+  );
 }
 
 export default AcoesFundo;
